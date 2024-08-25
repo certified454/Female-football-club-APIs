@@ -33,8 +33,35 @@ class Team(models.Model):
         upload_to='team_img/', default=None, null=True, blank=True)
     head_coach = models.CharField(max_length=70)
     description = models.TextField()
-    player = models.ForeignKey(
-        SportGallery, on_delete=models.SET_NULL, null=True)
+    player = models.ManyToManyField(
+        SportGallery)
 
     def __str__(self):
         return self.team_name
+
+
+class Fixtures(models.Model):
+    team1_logo = models.ImageField(
+        upload_to='team1_logo/', default='media/images (6).jpeg')
+    team2_logo = models.ImageField(
+        upload_to='team2_logo/', null=True, blank=True)
+    team1_name = models.CharField(max_length=50, null=True, blank=True)
+    team2_name = models.CharField(max_length=50, null=True, blank=True)
+    venue = models.CharField(max_length=50)
+    kickoff = models.CharField(max_length=20)
+    date_schedule = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.venue
+
+
+class News(models.Model):
+    post = models.FileField(upload_to='news_post/', default=None)
+    capation = models.TextField()
+    title = models.CharField(
+        max_length=10, default=None, null=False, blank=False)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    post_id = models.AutoField(primary_key=True, default=None)
+
+    def __str__(self) -> str:
+        return self.capation

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.validators import ValidationError
-from .models import JoinForm, SportGallery, Team
+from .models import JoinForm, SportGallery, Team, Fixtures, News
 
 
 class JoinSerializer(serializers.ModelSerializer):
@@ -29,3 +29,15 @@ class TeamSerializer(serializers.ModelSerializer):
         if team_exists:
             raise ValidationError('team with this name already exists')
         return super().validate(attrs)
+
+
+class FixturesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Fixtures
+        fields = '__all__'
+
+
+class NewsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = '__all__'

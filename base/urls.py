@@ -11,5 +11,9 @@ urlpatterns = [
     path('delete/<str:player>/', views.delete_gallery),
     path('teams/', views.teams),
     path('team_details/<str:team_name>/', views.team_details),
-    path('team/<str:team_name>/', views.update_team),
+    path('team_update/<str:team_name>/', views.update_team),
+    path('fixtures/', views.fixtures),
+    path('news/', views.news),
+    path('news_list/', views.news_list),
+    path('news/<str:title>/', views.news_details),
 ]

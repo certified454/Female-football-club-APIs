@@ -1,6 +1,7 @@
 This APIs are written for practical usage and also they cover most aspects such as the CRUD, listing and filtering 
+____________________________________
 Table of content
-
+____________________________________
 | Section       |Usage|  Details    
 ____________________________________
 | Home page     |list | list                                 displaying                         individual                           objects.      a search API is involve here were website visitors can use to search for a sport gallery base on the players name                        
